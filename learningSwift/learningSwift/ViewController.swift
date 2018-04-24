@@ -10,16 +10,56 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    let color = UIColor.lightGray
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        
+        self.view.backgroundColor = color
+        
+        self.view.addSubview(button)
+        self.view.addSubview(button2)
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-
+    lazy var button: UIButton = {
+        
+        var button = UIButton()
+        
+        let xPosition:CGFloat = 300
+        let yPosition:CGFloat = 253
+        let buttonWidth:CGFloat = 200
+        let buttonHeight:CGFloat = 60
+        
+        button.frame = CGRect(x: xPosition, y: yPosition, width: buttonWidth, height: buttonHeight)
+        
+        button.backgroundColor = UIColor.red
+        button.setTitle("1st Page", for: UIControlState.normal)
+        button.tintColor = UIColor.white
+        
+        
+        return button
+        
+    }()
+    
+    lazy var button2: UIButton = {
+        
+        var button2 = UIButton()
+        
+        let xPosition:CGFloat = 300
+        let yPosition:CGFloat = 373
+        let buttonWidth:CGFloat = 200
+        let buttonHeight:CGFloat = 60
+        
+        button2.frame = CGRect(x: xPosition, y: yPosition, width: buttonWidth, height: buttonHeight)
+        
+        button2.backgroundColor = UIColor.blue
+        button2.setTitle("2nd Page", for: UIControlState.normal)
+        button2.tintColor = UIColor.white
+        
+        
+        return button2
+        
+    }()
 
 }
 
