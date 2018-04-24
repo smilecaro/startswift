@@ -20,18 +20,28 @@ class ViewController: UIViewController {
         
         self.view.addSubview(button)
         self.view.addSubview(button2)
+        
+        buttonContraint()
+        button2Contraint()
+        
+        
     }
 
     lazy var button: UIButton = {
         
         var button = UIButton()
         
-        let xPosition:CGFloat = 300
-        let yPosition:CGFloat = 253
-        let buttonWidth:CGFloat = 200
-        let buttonHeight:CGFloat = 60
+//        button.translatesAutoresizingMaskIntoConstraints = true
+//
+//        let xPosition:CGFloat = 300
+//        let yPosition:CGFloat = 253
+//        let buttonWidth:CGFloat = 200
+//        let buttonHeight:CGFloat = 60
+//
+//        button.frame = CGRect(x: xPosition, y: yPosition, width: buttonWidth, height: buttonHeight)
+//
         
-        button.frame = CGRect(x: xPosition, y: yPosition, width: buttonWidth, height: buttonHeight)
+        button.translatesAutoresizingMaskIntoConstraints = false
         
         button.backgroundColor = UIColor.red
         button.setTitle("1st Page", for: UIControlState.normal)
@@ -46,12 +56,17 @@ class ViewController: UIViewController {
         
         var button2 = UIButton()
         
-        let xPosition:CGFloat = 300
-        let yPosition:CGFloat = 373
-        let buttonWidth:CGFloat = 200
-        let buttonHeight:CGFloat = 60
+//        button2.translatesAutoresizingMaskIntoConstraints = true
+//
+//        let xPosition:CGFloat = 300
+//        let yPosition:CGFloat = 373
+//        let buttonWidth:CGFloat = 200
+//        let buttonHeight:CGFloat = 60
+//
+//        button2.frame = CGRect(x: xPosition, y: yPosition, width: buttonWidth, height: buttonHeight)
+//
         
-        button2.frame = CGRect(x: xPosition, y: yPosition, width: buttonWidth, height: buttonHeight)
+        button2.translatesAutoresizingMaskIntoConstraints = false
         
         button2.backgroundColor = UIColor.blue
         button2.setTitle("2nd Page", for: UIControlState.normal)
@@ -79,6 +94,30 @@ class ViewController: UIViewController {
         print("Button2 tapped")
         
         self.navigationController?.pushViewController(Page2ViewController(), animated: true)
+    }
+    
+    func buttonContraint(){
+        
+        //placement sur X et Y
+        button.centerYAnchor.constraint(equalTo: self.view.centerYAnchor, constant: -50).isActive = true
+        button.centerXAnchor.constraint(equalTo: self.view.centerXAnchor).isActive = true
+        
+        //taille bouton
+        button.widthAnchor.constraint(equalTo: self.view.widthAnchor, multiplier: 0.25).isActive = true //constraint(equalTo: self.view.widthAnchor).isActive = true
+        button.heightAnchor.constraint(equalToConstant: 40).isActive = true
+        
+    }
+    
+    func button2Contraint(){
+        
+        //placement sur X et Y
+        button2.topAnchor.constraint(equalTo: self.button.bottomAnchor, constant: 25).isActive = true
+        button2.centerXAnchor.constraint(equalTo: self.button.centerXAnchor).isActive = true
+        
+        //taille bouton
+        button2.widthAnchor.constraint(equalTo: self.button.widthAnchor).isActive = true //constraint(equalTo: self.view.widthAnchor).isActive = true
+        button2.heightAnchor.constraint(equalTo: self.button.heightAnchor).isActive = true
+        
     }
 
 }
