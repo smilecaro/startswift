@@ -35,7 +35,7 @@ class ViewController: UIViewController {
         button.backgroundColor = UIColor.red
         button.setTitle("1st Page", for: UIControlState.normal)
         button.tintColor = UIColor.white
-        
+        button.addTarget(self, action: #selector(buttonAction), for: .touchUpInside)
         
         return button
         
@@ -55,11 +55,22 @@ class ViewController: UIViewController {
         button2.backgroundColor = UIColor.blue
         button2.setTitle("2nd Page", for: UIControlState.normal)
         button2.tintColor = UIColor.white
+        button2.addTarget(self, action: #selector(buttonAction2), for: .touchUpInside)
         
         
         return button2
         
     }()
+    
+    @objc func buttonAction(_ sender:UIButton!)
+    {
+        print("Button1 tapped")
+    }
+    
+    @objc func buttonAction2(_ sender:UIButton!)
+    {
+        print("Button2 tapped")
+    }
 
 }
 
