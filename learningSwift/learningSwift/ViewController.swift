@@ -9,11 +9,10 @@
 import UIKit
 
 class ViewController: UIViewController {
+    
 
     let color = UIColor.lightGray
     
-    var myTableView: UITableView = UITableView()
-    var itemsToLoad: [String] = ["One", "Two", "Three"]
 
     
     override func viewDidLoad() {
@@ -27,20 +26,6 @@ class ViewController: UIViewController {
         buttonContraint()
         button2Contraint()
         
-        super.viewWillAppear(animated)
-        
-        let screenSize: CGRect = UIScreen.main.bounds
-        
-        let screenWidth = screenSize.width
-        let screenHeight = screenSize.height
-        
-        myTableView.frame = CGRect(x: 0, y: 0, width: screenWidth, height: screenHeight)
-        myTableView.dataSource = self
-        myTableView.delegate = self
-        
-        myTableView.register(UITableViewCell.self, forCellReuseIdentifier: "myCell")
-        
-        self.view.addSubview(myTableView)
       
     }
     
@@ -139,25 +124,6 @@ class ViewController: UIViewController {
         
     }
     
-    func tableView(tableView: UITableView, numberForRowsInSection section: Int) -> Int {
-        
-        return itemsToLoad.count
-    }
-    
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-     
-        let cell:UITableViewCell = tableView.dequeueReusableCell(withIdentifier: "myCell", for: indexPath as IndexPath)
-        
-        cell.textLabel?.text = self.itemsToLoad[indexPath.row]
-        
-        return cell
-        
-    }
-    
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath)
-    {
-        print("User selected table row \(indexPath.row) and item \(itemsToLoad[indexPath.row])")
-    }
     
 }
 
