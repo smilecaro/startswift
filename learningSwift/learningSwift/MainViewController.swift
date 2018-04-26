@@ -8,27 +8,31 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class MainViewController: UIViewController {
     
-
-    let color = UIColor.lightGray
     
-
+    
+    var color = UIColor.lightGray
+    
+    func onUserAction(data: UIColor){
+        color = data
+        self.view.backgroundColor = color
+        print ("data = \(data)")
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.view.backgroundColor = color
+        //self.view.backgroundColor = color
         
         self.view.addSubview(button)
         self.view.addSubview(button2)
         
         buttonContraint()
         button2Contraint()
-        
+        onUserAction(data: color)
       
     }
-    
     
 
     lazy var button: UIButton = {

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import os.log
 
 class Page1ViewController: UIViewController {
     
