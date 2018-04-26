@@ -12,8 +12,8 @@ class Page2ViewController: UIViewController, UITableViewDataSource, UITableViewD
     
     let color = UIColor.blue
     
-    var itemsToLoad: [String] = ["Green", "Yellow", "Magenta", "Cyan", "White", "Black", "Brown", "Gray", "Red", "Blue"]
-    var itemsToColor: [UIColor] = [UIColor.green, UIColor.yellow, UIColor.magenta, UIColor.cyan, UIColor.white, UIColor.black, UIColor.brown, UIColor.gray, UIColor.red, UIColor.blue]
+    var itemsToLoad: [String] = ["Green", "Yellow", "Magenta", "Cyan", "White", "Blue", "Black", "Brown", "Gray", "Red"]
+    var itemsToColor: [UIColor] = [UIColor.green, UIColor.yellow, UIColor.magenta, UIColor.cyan, UIColor.white, UIColor.blue, UIColor.black, UIColor.brown, UIColor.gray, UIColor.red]
     
     var myTableView: UITableView = UITableView()
     //var itemsToLoad: [String] = [self.table]
@@ -22,6 +22,7 @@ class Page2ViewController: UIViewController, UITableViewDataSource, UITableViewD
         super.viewDidLoad()
         
         self.view.backgroundColor = color
+
 
         
 //        let screenSize: CGRect = UIScreen.main.bounds
@@ -67,6 +68,8 @@ class Page2ViewController: UIViewController, UITableViewDataSource, UITableViewD
         cell.textLabel?.text = self.itemsToLoad[indexPath.row]
         cell.textLabel?.textColor = self.itemsToColor[indexPath.row]
         cell.backgroundColor = self.itemsToColor[indexPath.row]
+        cell.textLabel?.textAlignment = NSTextAlignment.center
+        
         
         return cell
         
@@ -79,7 +82,7 @@ class Page2ViewController: UIViewController, UITableViewDataSource, UITableViewD
         myTableView.centerXAnchor.constraint(equalTo: self.view.centerXAnchor).isActive = true
         
         //taille
-        myTableView.widthAnchor.constraint(equalTo: self.view.widthAnchor, multiplier: 0.25).isActive = true
+        myTableView.widthAnchor.constraint(equalTo: self.view.widthAnchor, multiplier: 0.75).isActive = true
         myTableView.heightAnchor.constraint(equalToConstant: 450).isActive = true
         
     }
